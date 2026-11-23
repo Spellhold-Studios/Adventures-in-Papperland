@@ -12,7 +12,7 @@ ALWAYS
 	OUTER_SET is_ee = (GAME_IS ~bg2ee eet~) ? 1 : 0	// EE game
 
 	/* --------------------------------------------------------------------------------------------- *
-	 *    Convert strings to UTF-8 for EE games                                                      *
+	 *    Convert strings to ANSI for no EE games                                                      *
 	 *    No exception, everything needs to be converted                                             *
 	 *    setup.tra contains in game texts as well as installation texts and need to be converted    *
 	 * -----------------------------------------------------------------------*--------------------- */
