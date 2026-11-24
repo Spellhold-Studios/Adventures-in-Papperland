@@ -12,17 +12,18 @@ ALWAYS
 	OUTER_SET is_ee = (GAME_IS ~bg2ee eet~) ? 1 : 0	// EE game
 
 	/* --------------------------------------------------------------------------------------------- *
-	 *    Convert strings to UTF-8 for EE games                                                      *
+	 *    Convert strings to ANSI for no EE games                                                      *
 	 *    No exception, everything needs to be converted                                             *
 	 *    setup.tra contains in game texts as well as installation texts and need to be converted    *
 	 * -----------------------------------------------------------------------*--------------------- */
-	ACTION_DEFINE_ARRAY cb#noconvert BEGIN END
+	ACTION_DEFINE_ARRAY cb#noconvert BEGIN install END
 	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
 	ACTION_DEFINE_ARRAY cb#reload BEGIN setup END
 
 	LAF HANDLE_CHARSETS
 		INT_VAR
 			infer_charsets = 1
+			from_utf8 = 1
 		STR_VAR
 			tra_path = EVAL ~%MOD_FOLDER%/lang~
 			noconvert_array = cb#noconvert
@@ -36,19 +37,28 @@ AUTO_TRA ~aip/lang/%s~
 
 LANGUAGE ~English~
          ~english~
+		 ~aip/lang/english/install.tra~
          ~aip/lang/english/setup.tra~
 
 LANGUAGE ~Russian (translation Austin & aerie.ru)~
          ~russian~
+		 ~aip/lang/russian/install.tra~
          ~aip/lang/russian/setup.tra~
 
 LANGUAGE ~Deutsch (Uebersetzung von Drogan Di'Umptu)~
          ~german~
+		 ~aip/lang/german/install.tra~
          ~aip/lang/german/setup.tra~
 
 LANGUAGE ~Espanol (traduccion por Clan REO)~
          ~spanish~
+		 ~aip/lang/spanish/install.tra~
          ~aip/lang/spanish/setup.tra~
+
+LANGUAGE ~Simplified Chinese~
+         ~schinese~
+		 ~aip/lang/schinese/install.tra~
+         ~aip/lang/schinese/setup.tra~
 
 
 /* ========================== *
